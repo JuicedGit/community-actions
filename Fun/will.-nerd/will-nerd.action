@@ -1,0 +1,44 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": []
+  },
+  "trigger": {
+    "type": "label",
+    "content": "nerd"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{if;{perget;{args;2}};===;;{perset;{args;2};{range;0;100}}}\n{if;{args;1};===;count;{if;{perget;{args;2}};>;50;{args;2} is {perget;{args;2}}% nerd :nerd:;{args;2} is {perget;{args;2}}% nerd :sunglasses:}}\n\n{if;{args;1};===;help;---\nNerd **HELP**\n*Commands & explanation:*\n1. **a!nerd count user** - this command shows a users nerd percentage, if they do not have one set it will generate a random nerd percentage.\nExample:\na!nerd count {user.mention}\n2. **a!nerd reset user** - this command will generate a random nerd percentage for a user.\nExample:\na!nerd reset {user.mention}\n3. **a!nerd set user num** - this command will allow you to set a users nerd percentage.\nExample:\na!nerd set {user.mention} 0\n*What does a!nerd do?*\nThe nerd command will spit out a random percentage and call the user a nerd of that percentage. You may alter percentages using the commands above. \nThe action will remember the users percentage. \n---}",
+      "id": "5ea63800944c4a0027bffcbc"
+    },
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{if;{args;1};===;reset;{if;{user.roles};includes;601614579167920158;{perset;{args;2}}{args;2} has been reset. }}",
+      "channel": null,
+      "id": "5ea63800944c4a0027bffcbb"
+    },
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{if;{args;1};===;set;{if;{user.roles};includes;601614579167920158;{perset;{args;2};{args;3}};{args;3} has been set to {perget;{args;2}}}}",
+      "channel": null,
+      "id": "5ea63800944c4a0027bffcba"
+    }
+  ],
+  "formatVersion": "1.2"
+}
